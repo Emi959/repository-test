@@ -1,4 +1,6 @@
 #imports the clock
+import tkinter as tk
+from tkinter import filedialog, messagebox
 from datetime import datetime
 
 # Get the current time
@@ -29,6 +31,16 @@ def encrypt_file(input_path, output_path):
     except Exception as e:
         print("Encryption failed:", e)
 
-# moves text from 'input.txt' to the newly made 'encrypted.txt' file
+root = tk.Tk()
+root.title("File Encryptor")
+
+label = tk.Label(root, text="Encrypt a text file"
+label.pack(pady=10)
+
+button = tk.Button(root, text= "select file to encrypt", command=select_input_file)
+button.pack(pady=10)
+
+root.mainloop
+
 if __name__ == "__main__":
     encrypt_file("input.txt", "encrypted.txt")
